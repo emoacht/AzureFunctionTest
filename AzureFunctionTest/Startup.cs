@@ -11,9 +11,6 @@ public class Startup : FunctionsStartup
 	{
 		builder.Services.AddHttpClient();
 
-		builder.Services.AddSingleton<MyService>((s) =>
-		{
-			return new MyService();
-		});
+		builder.Services.AddScoped<IMyService, MyService>();
 	}
 }

@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace AzureFunctionTest;
 
 public interface IMyService
@@ -8,5 +9,12 @@ public interface IMyService
 
 public class MyService : IMyService
 {
-	public string GetMessage() => "Message";
+	private readonly Guid _id;
+
+	public MyService()
+	{
+		_id = Guid.NewGuid();
+	}
+
+	public string GetMessage() => $"Hello {_id}";
 }
